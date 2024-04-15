@@ -1,0 +1,113 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{first_name}-{last_name}-{identification_number}",
+ "creation": "2024-04-15 18:13:16.482400",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "member_status",
+  "section_break_taxa",
+  "first_name",
+  "last_name",
+  "dob",
+  "gender",
+  "column_break_jhdw",
+  "identification_number",
+  "occupation",
+  "section_break_upfr",
+  "head_of_family",
+  "relationship_with_hof"
+ ],
+ "fields": [
+  {
+   "fieldname": "member_status",
+   "fieldtype": "Select",
+   "label": "Member Status",
+   "options": "Active\nInactive"
+  },
+  {
+   "fieldname": "section_break_taxa",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "first_name",
+   "fieldtype": "Data",
+   "label": "First Name"
+  },
+  {
+   "fieldname": "last_name",
+   "fieldtype": "Data",
+   "label": "Last Name"
+  },
+  {
+   "fieldname": "dob",
+   "fieldtype": "Date",
+   "label": "DOB"
+  },
+  {
+   "fieldname": "gender",
+   "fieldtype": "Select",
+   "label": "Gender",
+   "options": "Male\nFemale"
+  },
+  {
+   "fieldname": "column_break_jhdw",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Given by the organisation",
+   "fieldname": "identification_number",
+   "fieldtype": "Data",
+   "label": "Identification Number"
+  },
+  {
+   "fieldname": "occupation",
+   "fieldtype": "Data",
+   "label": "Occupation"
+  },
+  {
+   "fieldname": "section_break_upfr",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "head_of_family",
+   "fieldtype": "Link",
+   "label": "Head Of Family (HOF)",
+   "options": "Members"
+  },
+  {
+   "fieldname": "relationship_with_hof",
+   "fieldtype": "Select",
+   "label": "Relationship with HOF",
+   "options": "Father\nMother\nBrother\nSister\nAunt\nUncle\nGrand Father\nGrand Mother\nOthers"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-04-15 18:38:46.880241",
+ "modified_by": "Administrator",
+ "module": "Donation Management System",
+ "name": "Members",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "track_seen": 1
+}

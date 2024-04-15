@@ -1,0 +1,63 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:body_name",
+ "creation": "2024-04-15 17:30:02.737062",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "body_name",
+  "gender",
+  "start_age"
+ ],
+ "fields": [
+  {
+   "fieldname": "body_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Body Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "start_age",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Start Age",
+   "reqd": 1
+  },
+  {
+   "fieldname": "gender",
+   "fieldtype": "Select",
+   "label": "Gender",
+   "options": "Male\nFemale",
+   "reqd": 1
+  }
+ ],
+ "links": [],
+ "modified": "2024-04-15 22:32:25.634255",
+ "modified_by": "Administrator",
+ "module": "Donation Management System",
+ "name": "Auxiliary",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "track_seen": 1
+}
