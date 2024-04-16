@@ -1,0 +1,63 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:fund_name",
+ "creation": "2024-04-16 11:27:21.721527",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "fund_name",
+  "applicable_only_for_member",
+  "suggested_contribution_percentage_",
+  "fund_description"
+ ],
+ "fields": [
+  {
+   "fieldname": "fund_name",
+   "fieldtype": "Data",
+   "label": "Fund Name",
+   "unique": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "applicable_only_for_member",
+   "fieldtype": "Check",
+   "label": "Applicable only for member?"
+  },
+  {
+   "fieldname": "suggested_contribution_percentage_",
+   "fieldtype": "Percent",
+   "label": "Suggested contribution percentage (%)"
+  },
+  {
+   "fieldname": "fund_description",
+   "fieldtype": "Text Editor",
+   "label": "Fund Description"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-04-16 11:44:03.834291",
+ "modified_by": "Administrator",
+ "module": "Donation Management System",
+ "name": "Funds",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -8,7 +8,11 @@
  "field_order": [
   "body_name",
   "gender",
-  "start_age"
+  "start_age",
+  "section_break_jsfx",
+  "funds",
+  "description_section",
+  "auxiliary_description"
  ],
  "fields": [
   {
@@ -32,10 +36,30 @@
    "label": "Gender",
    "options": "Male\nFemale",
    "reqd": 1
+  },
+  {
+   "fieldname": "section_break_jsfx",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "funds",
+   "fieldtype": "Table",
+   "label": "Funds",
+   "options": "Auxiliary Funds"
+  },
+  {
+   "fieldname": "description_section",
+   "fieldtype": "Section Break",
+   "label": "Description"
+  },
+  {
+   "fieldname": "auxiliary_description",
+   "fieldtype": "Text Editor",
+   "label": "Auxiliary Description"
   }
  ],
  "links": [],
- "modified": "2024-04-15 22:32:25.634255",
+ "modified": "2024-04-16 11:46:20.715345",
  "modified_by": "Administrator",
  "module": "Donation Management System",
  "name": "Auxiliary",
