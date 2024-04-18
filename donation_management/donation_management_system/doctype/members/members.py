@@ -9,17 +9,17 @@ from frappe.utils import getdate
 class Members(Document):
 
 	@property
-	def custom_age(self):
+	def age(self):
 		age = Members.get_age(self)
 		return age
 	
 	@property
-	def custom_auxiliary_body(self):
-		auxiliary_body = Members.get_auxiliary_body(self)
+	def auxiliary(self):
+		auxiliary_body = Members.get_auxiliary(self)
 		return auxiliary_body
 	
-	@custom_auxiliary_body.setter
-	def custom_auxiliary_body(self, value):
+	@auxiliary.setter
+	def auxiliary(self, value):
 		# value from parameter can be used if any logic to be handled with previous data before save is completed.
 		pass
 	
@@ -31,7 +31,7 @@ class Members(Document):
 		age = today.year - dob.year - ((today.month, today.day) < (dob.month, dob.day))
 		return age
 	
-	def get_auxiliary_body(self):
+	def get_auxiliary(self):
 		age = Members.get_age(self)
 		gender = self.gender
 

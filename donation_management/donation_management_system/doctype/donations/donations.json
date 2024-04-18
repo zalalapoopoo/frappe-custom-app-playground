@@ -5,21 +5,30 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "donation_detail_heading",
+  "amended_from",
   "donor_section",
   "is_donor_a_non_member",
   "donated_by_member",
   "donated_by_non_member",
   "section_break_qgaf",
   "is_donation_on_behalf_of_someone_else",
-  "is_donated_for_a_non_member",
-  "donated_for_member",
-  "donated_for_non_member",
-  "amount_section",
-  "column_break_pajy",
-  "column_break_ersq",
-  "total_amount",
+  "is_donation_for_a_non_member",
+  "donation_for_member",
+  "donation_for_non_member",
   "remarks_section",
-  "remarks"
+  "remarks",
+  "donation_breakdown_tab",
+  "section_break_indt",
+  "auxiliary",
+  "section_break_brgd",
+  "donation_breakdown",
+  "grand_total_section",
+  "column_break_vskc",
+  "column_break_dcov",
+  "total_amount",
+  "hidden_section",
+  "currency"
  ],
  "fields": [
   {
@@ -46,6 +55,10 @@
    "default": "0",
    "fieldname": "is_donor_a_non_member",
    "fieldtype": "Check",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
    "label": "Is Donor a non-member?"
   },
   {
@@ -57,50 +70,11 @@
    "default": "0",
    "fieldname": "is_donation_on_behalf_of_someone_else",
    "fieldtype": "Check",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
    "label": "Is donation on behalf of someone else?"
-  },
-  {
-   "default": "0",
-   "depends_on": "eval: doc.is_donation_on_behalf_of_someone_else == true",
-   "fieldname": "is_donated_for_a_non_member",
-   "fieldtype": "Check",
-   "label": "Is donated for a non-member?",
-   "mandatory_depends_on": "eval: doc.is_donation_on_behalf_of_someone_else == true"
-  },
-  {
-   "depends_on": "eval: doc.is_donation_on_behalf_of_someone_else == true && doc.is_donated_for_a_non_member == false",
-   "fieldname": "donated_for_member",
-   "fieldtype": "Link",
-   "label": "Donated For (Member)",
-   "mandatory_depends_on": "eval: doc.is_donation_on_behalf_of_someone_else == true && doc.is_donated_for_a_non_member == false",
-   "options": "Members"
-  },
-  {
-   "depends_on": "eval: doc.is_donation_on_behalf_of_someone_else == true && doc.is_donated_for_a_non_member == true",
-   "fieldname": "donated_for_non_member",
-   "fieldtype": "Link",
-   "label": "Donated For (Non-member)",
-   "mandatory_depends_on": "eval: doc.is_donation_on_behalf_of_someone_else == true && doc.is_donated_for_a_non_member == true",
-   "options": "Non-members"
-  },
-  {
-   "fieldname": "amount_section",
-   "fieldtype": "Section Break",
-   "label": "Amount"
-  },
-  {
-   "fieldname": "column_break_pajy",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "column_break_ersq",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "total_amount",
-   "fieldtype": "Currency",
-   "label": "Total Amount",
-   "read_only": 1
   },
   {
    "fieldname": "remarks_section",
@@ -111,11 +85,116 @@
    "fieldname": "remarks",
    "fieldtype": "Text Editor",
    "label": "Remarks"
+  },
+  {
+   "fieldname": "donation_breakdown",
+   "fieldtype": "Table",
+   "label": "Donation Breakdown",
+   "options": "Donation Breakdown"
+  },
+  {
+   "fieldname": "section_break_brgd",
+   "fieldtype": "Section Break"
+  },
+  {
+   "depends_on": "eval: doc.donated_by_member || doc.donation_for_member",
+   "fieldname": "auxiliary",
+   "fieldtype": "Data",
+   "label": "Auxiliary",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "depends_on": "eval: doc.is_donation_on_behalf_of_someone_else == true",
+   "fieldname": "is_donation_for_a_non_member",
+   "fieldtype": "Check",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Is donation for a non-member?",
+   "mandatory_depends_on": "eval: doc.is_donation_on_behalf_of_someone_else == true"
+  },
+  {
+   "depends_on": "eval: doc.is_donation_on_behalf_of_someone_else == true && doc.is_donation_for_a_non_member == false",
+   "fieldname": "donation_for_member",
+   "fieldtype": "Link",
+   "label": "Donation For (Member)",
+   "mandatory_depends_on": "eval: doc.is_donation_on_behalf_of_someone_else == true && doc.is_donation_for_a_non_member == false",
+   "options": "Members"
+  },
+  {
+   "depends_on": "eval: doc.is_donation_on_behalf_of_someone_else == true && doc.is_donation_for_a_non_member == true",
+   "fieldname": "donation_for_non_member",
+   "fieldtype": "Link",
+   "label": "Donation For (Non-member)",
+   "mandatory_depends_on": "eval: doc.is_donation_on_behalf_of_someone_else == true && doc.is_donation_for_a_non_member == true",
+   "options": "Non-members"
+  },
+  {
+   "fieldname": "section_break_indt",
+   "fieldtype": "Section Break"
+  },
+  {
+   "description": "Changes made in this page will reset the donation breakdown details.",
+   "fieldname": "donation_detail_heading",
+   "fieldtype": "Heading",
+   "label": "Complete this section before heading over to Donation Breakdown page"
+  },
+  {
+   "fieldname": "donation_breakdown_tab",
+   "fieldtype": "Tab Break",
+   "label": "Donation Breakdown"
+  },
+  {
+   "fieldname": "grand_total_section",
+   "fieldtype": "Section Break",
+   "label": "Grand Total"
+  },
+  {
+   "fieldname": "column_break_vskc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_dcov",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Total Amount",
+   "options": "currency",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Currency",
+   "options": "Currency"
+  },
+  {
+   "fieldname": "hidden_section",
+   "fieldtype": "Section Break",
+   "label": "(Hidden)"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Donations",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
   }
  ],
  "index_web_pages_for_search": 1,
+ "is_submittable": 1,
  "links": [],
- "modified": "2024-04-16 11:45:18.507433",
+ "modified": "2024-04-17 19:06:21.739250",
  "modified_by": "Administrator",
  "module": "Donation Management System",
  "name": "Donations",

@@ -9,8 +9,6 @@
   "body_name",
   "gender",
   "start_age",
-  "section_break_jsfx",
-  "funds",
   "description_section",
   "auxiliary_description"
  ],
@@ -38,16 +36,6 @@
    "reqd": 1
   },
   {
-   "fieldname": "section_break_jsfx",
-   "fieldtype": "Section Break"
-  },
-  {
-   "fieldname": "funds",
-   "fieldtype": "Table",
-   "label": "Funds",
-   "options": "Auxiliary Funds"
-  },
-  {
    "fieldname": "description_section",
    "fieldtype": "Section Break",
    "label": "Description"
@@ -59,7 +47,7 @@
   }
  ],
  "links": [],
- "modified": "2024-04-16 11:46:20.715345",
+ "modified": "2024-04-16 12:46:21.205436",
  "modified_by": "Administrator",
  "module": "Donation Management System",
  "name": "Auxiliary",

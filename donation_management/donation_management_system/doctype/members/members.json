@@ -7,10 +7,13 @@
  "engine": "InnoDB",
  "field_order": [
   "member_status",
+  "column_break_gvan",
+  "auxiliary",
   "section_break_taxa",
   "first_name",
   "last_name",
   "dob",
+  "age",
   "gender",
   "column_break_jhdw",
   "identification_number",
@@ -81,11 +84,27 @@
    "fieldtype": "Select",
    "label": "Relationship with HOF",
    "options": "Father\nMother\nBrother\nSister\nAunt\nUncle\nGrand Father\nGrand Mother\nOthers"
+  },
+  {
+   "fieldname": "column_break_gvan",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "auxiliary",
+   "fieldtype": "Data",
+   "is_virtual": 1,
+   "label": "Auxiliary"
+  },
+  {
+   "fieldname": "age",
+   "fieldtype": "Int",
+   "is_virtual": 1,
+   "label": "Age"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-04-15 18:38:46.880241",
+ "modified": "2024-04-16 15:57:59.591789",
  "modified_by": "Administrator",
  "module": "Donation Management System",
  "name": "Members",

@@ -6,9 +6,12 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "is_enabled",
   "fund_name",
-  "applicable_only_for_member",
   "suggested_contribution_percentage_",
+  "applicable_only_for_member",
+  "is_related_to_an_auxiliary",
+  "auxiliary",
   "fund_description"
  ],
  "fields": [
@@ -33,11 +36,33 @@
    "fieldname": "fund_description",
    "fieldtype": "Text Editor",
    "label": "Fund Description"
+  },
+  {
+   "default": "0",
+   "depends_on": "eval: doc.applicable_only_for_member == true",
+   "fieldname": "is_related_to_an_auxiliary",
+   "fieldtype": "Check",
+   "label": "Is related to an auxiliary?",
+   "mandatory_depends_on": "eval: doc.applicable_only_for_member == true"
+  },
+  {
+   "depends_on": "eval: doc.applicable_only_for_member == true && doc.is_related_to_an_auxiliary == true",
+   "fieldname": "auxiliary",
+   "fieldtype": "Link",
+   "label": "Auxiliary",
+   "mandatory_depends_on": "eval: doc.applicable_only_for_member == true && doc.is_related_to_an_auxiliary == true",
+   "options": "Auxiliary"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_enabled",
+   "fieldtype": "Check",
+   "label": "Is Enabled?"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-04-16 11:44:03.834291",
+ "modified": "2024-04-16 13:26:42.451512",
  "modified_by": "Administrator",
  "module": "Donation Management System",
  "name": "Funds",

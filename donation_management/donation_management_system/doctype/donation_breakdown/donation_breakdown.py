@@ -5,5 +5,5 @@
 from frappe.model.document import Document
 
 
-class AuxiliaryFunds(Document):
+class DonationBreakdown(Document):
 	pass
