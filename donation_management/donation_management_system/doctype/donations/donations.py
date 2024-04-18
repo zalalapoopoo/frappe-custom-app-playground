@@ -9,6 +9,7 @@ from frappe.model.naming import now_datetime, make_autoname
 class Donations(Document):
 	def autoname(self):
 		current_datetime = now_datetime()
+
 		month = current_datetime.strftime("%b").upper()
 		year = current_datetime.strftime("%y")
 		
