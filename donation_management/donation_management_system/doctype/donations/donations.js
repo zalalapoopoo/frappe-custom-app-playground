@@ -89,7 +89,6 @@ function set_donation_breakdown_filters(frm, isMember, member_doc = null, isRese
     if (!isMember) {
         frm.fields_dict['donation_breakdown'].grid.get_field('fund_name').get_query = function (frm, cdt, cdn) {
             return {
-                // filters: { 'auxiliary': 'Khuddam' }
                 filters: {
                     'is_enabled': true,
                     'applicable_only_for_member': false

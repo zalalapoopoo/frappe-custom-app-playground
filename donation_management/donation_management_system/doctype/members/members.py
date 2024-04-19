@@ -25,8 +25,10 @@ class Members(Document):
 	
 	def get_age(self):
 		dob = self.dob
+
 		if type(dob) == str:
 			dob = datetime.strptime(dob, "%Y-%m-%d").date()
+			
 		today = getdate()
 		age = today.year - dob.year - ((today.month, today.day) < (dob.month, dob.day))
 		return age
